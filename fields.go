@@ -3,7 +3,7 @@
 
 // Package environschema implements a way to specify
 // configuration attributes for Juju environments.
-package environschema // import "gopkg.in/juju/environschema.v1"
+package environschema // import "gopkg.in/juju/environschema.v2"
 
 import (
 	"fmt"
