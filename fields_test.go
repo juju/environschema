@@ -6,8 +6,8 @@ package environschema_test
 import (
 	"testing"
 
-	"github.com/juju/schema"
 	qt "github.com/frankban/quicktest"
+	"github.com/juju/schema"
 
 	"gopkg.in/juju/environschema.v1"
 )
@@ -43,6 +43,9 @@ var validationSchemaTests = []struct {
 		"attrvalue": {
 			Type: environschema.Tattrs,
 		},
+		"listvalue": {
+			Type: environschema.Tlist,
+		},
 	},
 	tests: []valueTest{{
 		about: "all fields ok",
@@ -52,6 +55,7 @@ var validationSchemaTests = []struct {
 			"intvalue":              320.0,
 			"boolvalue":             true,
 			"attrvalue":             "a=b c=d",
+			"listvalue":             []interface{}{"a", "b", "c"},
 		},
 		expectVal: map[string]interface{}{
 			"stringvalue":           "hello",
@@ -59,6 +63,7 @@ var validationSchemaTests = []struct {
 			"mandatory-stringvalue": "goodbye",
 			"boolvalue":             true,
 			"attrvalue":             map[string]string{"a": "b", "c": "d"},
+			"listvalue":             []interface{}{"a", "b", "c"},
 		},
 	}, {
 		about: "non-mandatory fields missing",

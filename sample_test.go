@@ -46,6 +46,10 @@ var sampleYAMLTests = []struct {
 			Type:        environschema.Tattrs,
 			Description: "attrs is an attribute list",
 		},
+		"list": {
+			Type:        environschema.Tlist,
+			Description: "list is a slice",
+		},
 	},
 	expect: `
 		|# attrs is an attribute list
@@ -66,6 +70,11 @@ var sampleYAMLTests = []struct {
 		|# foo is a string.
 		|#
 		|foo: foovalue
+		|
+		|# list is a slice
+		|#
+		|# list:
+		|#   - example
 	`,
 }, {
 	about: "when a value is not specified, it's commented out",
@@ -214,6 +223,9 @@ var sampleYAMLTests = []struct {
 		"attrsval": {
 			Type: environschema.Tattrs,
 		},
+		"listval": {
+			Type: environschema.Tlist,
+		},
 	},
 	expect: `
 		|# attrsval:
@@ -224,6 +236,9 @@ var sampleYAMLTests = []struct {
 		|# intval: 0
 		|
 		|# intval-with-example: 999
+		|
+		|# listval:
+		|#   - example
 	`,
 }, {
 	about: "secret values are marked as secret/immutable",
