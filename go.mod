@@ -1,6 +1,6 @@
-module gopkg.in/juju/environschema.v1
+module github.com/juju/environschema
 
-go 1.12
+go 1.18
 
 require (
 	github.com/frankban/quicktest v1.2.2
